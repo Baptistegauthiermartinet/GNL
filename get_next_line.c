@@ -6,12 +6,11 @@
 /*   By: bgauthie <bgauthie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 15:24:42 by bgauthie          #+#    #+#             */
-/*   Updated: 2022/12/05 15:27:08 by bgauthie         ###   ########.fr       */
+/*   Updated: 2022/12/12 10:24:47 by bgauthie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h>
 
 char	*get_next_line(int fd)
 {
@@ -119,7 +118,8 @@ char	*cut_temp(char	*str)
 	i = 0;
 	while (str[i] != '\0' && str[i] != '\n')
 		i++;
-	i++;
+	if (str[i] == '\n')
+		i++;
 	new = malloc(sizeof(char) * i + sizeof(char));
 	if (!new)
 		return (NULL);
